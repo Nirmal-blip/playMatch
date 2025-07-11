@@ -12,11 +12,11 @@ function Hero() {
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black/50 bg-blur bg-opacity-40"></div>
       {/* Overlay Content */}
-      <div className="absolute inset-0 flex flex-col justify-center pl-24 max-w-3xl text-left z-10">
-        <h1 className="text-7xl roboto-condensed font-bold mb-6 text-white leading-tight">
+      <div className="absolute inset-0 flex flex-col  justify-center md:pl-24 md:ml-0  max-w-3xl md:text-left z-10">
+        <h1 className="md:text-7xl text-6xl roboto-condensed font-bold mb-6 text-white leading-tight">
           YOUR DREAM <span className="inline-block">IS OUR</span><br />MOTIVATION
         </h1>
-        <p className="text-lg text-white mb-8 max-w-xl">
+        <p className="md:text-lg text-md text-white mb-8 md:max-w-xl max-w-lg">
           PLAY LIKE A PRO AND GET YOUR DEGREE. THIS IS COLLEGE SPORTS. WELCOME TO THE PLACE TO ACHIEVE YOUR DREAM OF STUDYING AND PLAYING AT AN AMERICAN UNIVERSITY.
         </p>
         <div className="flex items-center gap-8">

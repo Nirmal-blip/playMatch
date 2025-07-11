@@ -50,7 +50,7 @@ function Navbar() {
   {/* Mobile Menu */}
   {isOpen && (
         <div className="md:hidden">
-          <ul className="flex flex-col items-center space-y-4 mt-4 bg-white/80 backdrop-blur-xl rounded-xl p-4 border border-white/10">
+          <ul className="flex flex-col  items-center sticky w-full space-y-4 mt-4 bg-white backdrop-blur-xl rounded-xl p-4 border border-white/10">
             {[ 
               { href: '/', label: 'Home' },
           
@@ -63,7 +63,7 @@ function Navbar() {
               <li key={idx} className="group relative w-full">
                 <a
                   href={link.href}
-                  className="block w-full text-white/80 font-medium py-3 px-6 rounded-lg hover:bg-white/5 transition-all duration-300"
+                  className="block w-full text-black font-medium py-3 px-6 rounded-lg hover:bg-white/5 transition-all duration-300"
                 >
                   {link.label}
                 </a>
