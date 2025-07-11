@@ -18,6 +18,7 @@ function App() {
         <Route path='/' element={<Hero/>}/>
         <Route path='/about' element={<Hero/>}/>
         <Route path='/sports' element={<><Sports/><Playground/></>}/>
+        <Route path='/explore' element={<><Sports/><Playground/><InterestedField/></>}/>
         <Route path='/playground' element={<Playground/>}/>
         <Route path='/interested-field' element={<InterestedField/>}/>
       </Routes>

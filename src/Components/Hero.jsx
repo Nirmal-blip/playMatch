@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {Link} from 'react-router-dom'
 function Hero() {
   return (
 <div className="relative w-full  h-[calc(100vh-5rem)] ">
@@ -23,9 +23,9 @@ function Hero() {
           <button className="px-8 py-4 bg-red-600 hover:bg-transparent hover:text-red-600 hover:border-2 hover:border-red-600 rounded-md text-white font-bold text-lg transition duration-300 shadow-lg">
             FIND THE PERFECT MATCH
           </button>
-          <a href="#" className="text-white hover:text-red-600 text-lg font-semibold hover:underline flex items-center">
+          <Link to="/explore" className="text-white hover:text-red-600 text-lg font-semibold hover:underline flex items-center">
             EXPLORE <span className="ml-2">→</span>
-          </a>
+          </Link>
         </div>
       </div>
     </div>
