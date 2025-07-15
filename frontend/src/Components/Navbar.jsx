@@ -12,6 +12,7 @@ function Navbar() {
   const [userName, setUserName] = useState("");
   useEffect(() => {
     const storedName = sessionStorage.getItem("userName");
+    console.log("Stored userName:", storedName); // Debugging line
     if (storedName) setUserName(storedName);
   }, []);
 
