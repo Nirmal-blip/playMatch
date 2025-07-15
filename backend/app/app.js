@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const app= express();
-const PORT= process.env.PORT || 3000;
+const PORT= process.env.PORT ;
 
 //Using CORS middleware to allow cross-origin requests
 app.use(cors({
