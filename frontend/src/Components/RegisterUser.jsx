@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'; // ✅ Import it
 function RegisterUser() {
+    const navigate = useNavigate(); // ✅ Initialize
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -22,7 +24,7 @@ function RegisterUser() {
       const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/register`, formData);
       sessionStorage.setItem('isLoggedIn', 'true');
       setMessage('Register successful! Redirecting...✅✅');
-      window.location.href = '/explore';
+      navigate("/explore");
       console.log('Register successful:', res.data);
       // Get the full user data from response
       const user = res.data.user;

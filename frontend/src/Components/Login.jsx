@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'; // ✅ Import it
 function Login() {
+  const navigate = useNavigate(); // ✅ Initialize
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -21,7 +23,8 @@ function Login() {
       const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/login`, formData);
       sessionStorage.setItem('isLoggedIn', 'true');
       setMessage('Login successful! Redirecting...✅✅');
-      window.location.href = '/explore';
+      // ✅ Navigate without full reload
+      navigate("/explore");
       console.log('Login successful:', res.data);
       // Get the full user data from response
       const user = res.data.user;
