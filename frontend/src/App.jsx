@@ -1,30 +1,33 @@
-import { useState } from 'react'
-
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
-
-import Navbar from './Components/Navbar'
-import Hero from './Components/Hero'
-import Sports from './Components/Sports'
-import Playground from './Components/Playground'
-import InterestedField from './Components/InterestedField'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './Components/Navbar';
+import Hero from './Components/Hero';
+import Sports from './Components/Sports';
+import Playground from './Components/Playground';
+import InterestedField from './Components/InterestedField';
+import Login from './Components/Login';
+import ProtectedLayout from './Components/ProtectedLayout';
+import Register from './Components/RegisterUser';
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-     <Router>
-    <Navbar/>
+    <Router>
+      <Navbar />
+
       <Routes>
-        <Route path='/' element={<Hero/>}/>
-        <Route path='/about' element={<Hero/>}/>
-        <Route path='/sports' element={<><Sports/><Playground/></>}/>
-        <Route path='/explore' element={<><Sports/><Playground/><InterestedField/></>}/>
-        <Route path='/playground' element={<Playground/>}/>
-        <Route path='/interested-field' element={<InterestedField/>}/>
+        {/* Public Route */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/" element={<Hero />} />
+        {/* Protected Routes */}
+        <Route element={<ProtectedLayout />}>
+          <Route path="/about" element={<Hero />} />
+          <Route path="/sports" element={<><Sports /><Playground /></>} />
+          <Route path="/explore" element={<><Sports /><Playground /><InterestedField /></>} />
+          <Route path="/playground" element={<Playground />} />
+          <Route path="/interested-field" element={<InterestedField />} />
+        </Route>
       </Routes>
-      </Router>
-    </>
-  )
+    </Router>
+  );
 }
 
-export default App
+export default App;
