@@ -9,7 +9,7 @@ const PORT= process.env.PORT ;
 
 //Using CORS middleware to allow cross-origin requests
 app.use(cors({
-    origin: process.env.CORS_ORIGIN ||"*", // Allow requests from this origin
+    origin: process.env.CORS_ORIGIN , // Allow requests from this origin
     credentials:true // Allow credentials (cookies, authorization headers, etc.)
 }));
 
