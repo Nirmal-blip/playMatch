@@ -1,6 +1,6 @@
 import User from '../Models/user.model.js';
 import bcrypt from 'bcryptjs';
-
+import { comparePassword } from '../Methods/bcryptPassword.js';
 //checking if the user is logged in
 
 export const loginUser = async (req, res) => {
@@ -11,12 +11,17 @@ export const loginUser = async (req, res) => {
   try {
         // 1. Find user by email
     const existingUser = await User.findOne({ email });
-        // 2. Compare entered password with stored hash
+
+     
     if (!existingUser) {
       return res.status(404).json({ message: "User not found ❌" });
     }
 
-    const isMatch = await bcrypt.compare(password, existingUser.password);
+
+      // 2. Compare entered password with stored hash  using methods defined by me (....smjh bhai easy hai....)
+    const isMatch = await comparePassword(password, existingUser.password);
+    console.log("Password match status:", isMatch); // ✅ Log to check password comparison
+    
     if (!isMatch) {
       return res.status(401).json({ message: "Invalid credentials" });
     }

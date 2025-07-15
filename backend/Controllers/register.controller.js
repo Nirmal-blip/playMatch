@@ -1,5 +1,6 @@
 import User from '../Models/user.model.js';
 import bcrypt from 'bcryptjs';
+import { hashPassword } from '../Methods/bcryptPassword.js';
 
 export const registerUser = async (req, res) => {
     const { name, email, password } = req.body;
@@ -14,11 +15,14 @@ export const registerUser = async (req, res) => {
         }
 
 
-        // Hash the password(using bcryptjs)
+        // Hash the password(using function i defined in methods nirmal ...easy )
+      const hashedPassword = await hashPassword(password);
+    
+        if (!hashedPassword) {
+            return res.status(500).json({ message: 'Error hashing password' });
+        }
 
-        const salt = await bcrypt.genSalt(10); // 10 rounds
-        const hashedPassword = await bcrypt.hash(password, salt);
-
+        
         // Create new user
         const newUser= new User({
             name,
